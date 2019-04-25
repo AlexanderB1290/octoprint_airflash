@@ -1,0 +1,4 @@
+include README.md
+recursive-include airflash/templates *
+recursive-include airflash/translations *
+recursive-include airflash/static *
