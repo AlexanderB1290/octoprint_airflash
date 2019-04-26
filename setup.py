@@ -21,7 +21,7 @@ plugin_version = "0.1.0"
 plugin_description = """A plugin for uploading files to Wi-Fi SD card"""
 
 # The plugin's author. Can be overwritten within OctoPrint's internal data via __plugin_author__ in the plugin module
-plugin_author = "Aleksandar B"
+plugin_author = "Alex Bushev"
 
 # The plugin's author's mail address.
 plugin_author_email = "hellboygb@gmail.com"
