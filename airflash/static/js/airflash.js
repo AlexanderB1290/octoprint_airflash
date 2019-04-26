@@ -8,11 +8,15 @@ $(function() {
     function AirflashViewModel(parameters) {
         var self = this;
 
-        // assign the injected parameters, e.g.:
-        // self.loginStateViewModel = parameters[0];
-        // self.settingsViewModel = parameters[1];
+        self.settingsViewModel = parameters[0];
+        self.loginState = parameters[1];
+        self.printerState = parameters[2];
+        self.filesViewModel = parameters[3];
 
-        // TODO: Implement your plugin's view model here.
+        self.uploadButton = $("#gcodeUploadAF");
+        self.uploadProgress = $("#uploadProgressAF");
+        self.uploadProgressBar = $(".bar", self.uploadProgress);
+
     }
 
     /* view model class, parameters for constructor, container to bind to
@@ -21,9 +25,7 @@ $(function() {
      */
     OCTOPRINT_VIEWMODELS.push({
         construct: AirflashViewModel,
-        // ViewModels your plugin depends on, e.g. loginStateViewModel, settingsViewModel, ...
-        dependencies: [ /* "loginStateViewModel", "settingsViewModel" */ ],
-        // Elements to bind to, e.g. #settings_plugin_airflash, #tab_plugin_airflash, ...
-        elements: [ /* ... */ ]
+        dependencies: ["settingsViewModel", "loginStateViewModel", "printerStateViewModel", "filesViewModel"],
+        elements: ['#sidebar_plugin_airflash']
     });
 });

@@ -1,0 +1,46 @@
+<form class="form-horizontal">
+    <h3>General</h3>
+    <div class="control-group">
+        <label class="control-label" for="ipAddress">{{ _('IP Address') }}</label>
+        <div class="controls">
+            <input type="text" id="ipAddress" class="input-block-level" data-bind="value: settings.plugins.airflash.ip_address">
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label" for="uploadPath">{{ _('Upload path') }}</label>
+        <div class="controls">
+            <input type="text" id="uploadPath" class="input-block-level" data-bind="value: settings.plugins.airflash.upload_path">
+        </div>
+    </div>
+
+
+    <h3 data-bind="visible: settings.plugins.airflash.auth.enabled">Authentication</h3>
+    <div class="control-group" data-bind="visible: settings.plugins.airflash.auth.enabled">
+        <div class="controls">
+            <label class="checkbox" for="authEnabled">
+                <input type="checkbox" id="authEnabled" data-bind="checked: settings.plugins.airflash.auth.enabled">{{ _('Enabled') }}
+            </label>
+        </div>
+    </div>
+    <div class="control-group" data-bind="visible: settings.plugins.airflash.auth.enabled">
+        <label class="control-label" for="authType">{{ _('Type') }}</label>
+        <div class="controls">
+            <select type="text" id="authType" data-bind="value: settings.plugins.airflash.auth.type">
+                <option value="basic">Basic</option>
+                <option value="digest">Digest</option>
+            </select>
+        </div>
+    </div>
+    <div class="control-group" data-bind="visible: settings.plugins.airflash.auth.enabled">
+        <label class="control-label" for="authUser">{{ _('Username') }}</label>
+        <div class="controls">
+            <input type="text" id="authUser" class="input-block-level" data-bind="value: settings.plugins.airflash.auth.user">
+        </div>
+    </div>
+    <div class="control-group" data-bind="visible: settings.plugins.airflash.auth.enabled">
+        <label class="control-label" for="authPwd">{{ _('Password') }}</label>
+        <div class="controls">
+            <input type="password" id="authUser" class="input-block-level" data-bind="value: settings.plugins.airflash.auth.pwd">
+        </div>
+    </div>
+</form>
