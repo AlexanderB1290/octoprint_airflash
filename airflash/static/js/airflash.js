@@ -13,9 +13,24 @@ $(function() {
         self.printerState = parameters[2];
         self.filesViewModel = parameters[3];
 
-        self.uploadButton = $("#gcodeUploadAF");
-        self.uploadProgress = $("#uploadProgressAF");
-        self.uploadProgressBar = $(".bar", self.uploadProgress);
+        self.uploadButton = undefined;
+        self.uploadProgress = undefined;
+        self.uploadProgressBar = undefined;
+
+        self.uploadProgressText = ko.observable();
+        self.isPrinting = ko.observable(undefined);
+
+        self.onStartup = function(){
+            self.uploadButton = $("#gcodeUploadAF");
+            self.uploadProgress = $("#uploadProgressAF");
+            self.uploadProgressBar = $(".bar", self.uploadProgress);
+        };
+
+        self.onAfterBinding = function(){
+            self.filesViewModel.uploadButton = self.uploadButton;
+            self.filesViewModel.uploadProgress = self.uploadProgress;
+            self.filesViewModel.uploadProgressBar = self.uploadProgressBar;
+        };
 
     }
 
@@ -26,6 +41,6 @@ $(function() {
     OCTOPRINT_VIEWMODELS.push({
         construct: AirflashViewModel,
         dependencies: ["settingsViewModel", "loginStateViewModel", "printerStateViewModel", "filesViewModel"],
-        elements: ['#sidebar_plugin_airflash']
+        elements: ["#sidebar_plugin_airflash"]
     });
 });
