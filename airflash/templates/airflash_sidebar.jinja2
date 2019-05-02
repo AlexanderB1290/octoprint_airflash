@@ -8,6 +8,6 @@
     <span class="btn btn-primary fileinput-button span12" data-bind="enable: $root.loginState.isUser() && !isPrinting(), css: {disabled: !$root.loginState.isUser()}" style="margin-bottom: 10px">
         <i class="fa fa-upload"></i>
         <span>Upload to AirFlash</span>
-        <input id="gcodeUploadAF" accept=".stl,.gcode,.gco,.g" type="file" name="file" class="fileinput-button" data-bind="enable:  $root.loginState.isUser()" aria-disabled="false">
+        <input id="gcodeUploadAF" accept="{{ ",".join(supportedExtensions) }}" type="file" name="file" class="fileinput-button" data-bind="enable:  $root.loginState.isUser(), event: {change: $root.afUpload}" aria-disabled="false">
     </span>
 </div>
