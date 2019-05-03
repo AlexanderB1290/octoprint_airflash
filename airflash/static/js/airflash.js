@@ -31,10 +31,10 @@ $(function() {
         self.onAfterBinding = function(){
             console.dir();
             self.settings = self.settingsViewModel.settings.plugins.airflash;
-            self.uploadUrl = "http://"+self.settings.ip_address()+""+self.settings.upload_path();
         };
 
         self.afUpload = function(data, e){
+            self.uploadUrl = "http://"+self.settings.ip_address()+""+self.settings.upload_path();
             var fileList = e.target.files;
             if(fileList.length > 0){
                 var formData = new FormData();
